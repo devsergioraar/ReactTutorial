@@ -10,10 +10,35 @@ export function App(){
     const funcionCambiaNombre = () => {
         setName('midudev')
     } 
+
+    const users = [
+        {
+            userName: "devsergioraar",
+            name: "Sergio Ramírez",
+            isFollowing: false
+        },
+        {
+            userName: "mouredev",
+            name: "Brais Moure",
+            isFollowing: true
+        },
+        {
+            userName: "midudev",
+            name: "Miguel Ángel Durán",
+            isFollowing: false
+        },
+        {
+            userName: "wiz0u",
+            name: "Frances Telegram",
+            isFollowing: true
+        }
+
+    ];
      
 
     return(
         <div className='App'>
+            {/*
             <TwitterFollowCard
             formatUserName = {formatUserName}
             userName={name}
@@ -27,7 +52,22 @@ export function App(){
             <button onClick={funcionCambiaNombre}>
                 Cambiar Usuario X
             </button>
-            
+            */}
+            <section className='App'>
+                {
+                    users.map(
+                        ({userName,name, isFollowing})=> (
+                            <TwitterFollowCard
+                            key={userName}
+                            formatUserName = {formatUserName}
+                            userName={userName}
+                            name ={name}
+                            InitialIsFollowing={isFollowing}
+                            />
+                        )
+                    )
+                }
+            </section>
         </div>
     )
 }
